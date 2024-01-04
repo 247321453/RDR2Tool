@@ -14,9 +14,10 @@ namespace RDR2Tool
         [STAThread]
         static void Main()
         {
+            CosturaUtility.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
