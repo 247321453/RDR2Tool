@@ -119,6 +119,7 @@ namespace RDR2Tool
             //生成卡单文件
             try
             {
+                File.Delete(path);
                 using (var fs = File.OpenWrite(path))
                 {
                     using (var writer = new BinaryWriter(fs))
@@ -256,12 +257,12 @@ namespace RDR2Tool
                 }
                 return;
             }
-            Save();
             if (!WriteFile(code, dst_file))
             {
                 MessageBox.Show("无法保存文件到游戏路径，请确保游戏路径是正确的,或者以管理员身份启动本工具");
                 return;
             }
+            Save();
             UpdateCurrentCode();
             MessageBox.Show("卡单文件已经复制完成，你重启游戏即可进入该战局");
         }
