@@ -51,10 +51,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 177);
+            this.label2.Location = new System.Drawing.Point(3, 178);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(5);
-            this.label2.Size = new System.Drawing.Size(66, 27);
+            this.label2.Padding = new System.Windows.Forms.Padding(3);
+            this.label2.Size = new System.Drawing.Size(62, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "游戏路径";
             // 
@@ -88,10 +88,10 @@
             this.lb_code.BackColor = System.Drawing.Color.Transparent;
             this.lb_code.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.lb_code.ForeColor = System.Drawing.Color.White;
-            this.lb_code.Location = new System.Drawing.Point(3, 211);
+            this.lb_code.Location = new System.Drawing.Point(3, 213);
             this.lb_code.Name = "lb_code";
-            this.lb_code.Padding = new System.Windows.Forms.Padding(5);
-            this.lb_code.Size = new System.Drawing.Size(66, 27);
+            this.lb_code.Padding = new System.Windows.Forms.Padding(3);
+            this.lb_code.Size = new System.Drawing.Size(62, 23);
             this.lb_code.TabIndex = 4;
             this.lb_code.Text = "战局密码";
             // 
@@ -132,7 +132,7 @@
             this.btn_enter_public.Text = "公开战局";
             this.btn_enter_public.ThemeAuthor = "Narwin";
             this.btn_enter_public.ThemeName = "MetroDark";
-            this.btn_enter_public.Click += new System.EventHandler(this.btn_enter_public_Click);
+            this.btn_enter_public.Click += new System.EventHandler(this.OnButtonResetMetaFile_Click);
             // 
             // btn_choose_game_dir
             // 
@@ -158,7 +158,7 @@
             this.btn_choose_game_dir.Text = "设置目录";
             this.btn_choose_game_dir.ThemeAuthor = "Narwin";
             this.btn_choose_game_dir.ThemeName = "MetroDark";
-            this.btn_choose_game_dir.Click += new System.EventHandler(this.btn_choose_game_dir_Click);
+            this.btn_choose_game_dir.Click += new System.EventHandler(this.OnButtonChooseGamePath_Click);
             // 
             // btn_set_code
             // 
@@ -184,7 +184,7 @@
             this.btn_set_code.Text = "生成文件";
             this.btn_set_code.ThemeAuthor = "Narwin";
             this.btn_set_code.ThemeName = "MetroDark";
-            this.btn_set_code.Click += new System.EventHandler(this.btn_set_code_Click);
+            this.btn_set_code.Click += new System.EventHandler(this.OnButtonGenFile_Click);
             // 
             // tb_game_dir
             // 
@@ -199,12 +199,12 @@
             this.tb_game_dir.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.tb_game_dir.Image = null;
             this.tb_game_dir.Lines = null;
-            this.tb_game_dir.Location = new System.Drawing.Point(72, 176);
+            this.tb_game_dir.Location = new System.Drawing.Point(70, 176);
             this.tb_game_dir.MaxLength = 1024;
             this.tb_game_dir.Multiline = false;
             this.tb_game_dir.Name = "tb_game_dir";
             this.tb_game_dir.ReadOnly = false;
-            this.tb_game_dir.Size = new System.Drawing.Size(498, 27);
+            this.tb_game_dir.Size = new System.Drawing.Size(502, 27);
             this.tb_game_dir.Style = MetroSet_UI.Design.Style.Dark;
             this.tb_game_dir.StyleManager = null;
             this.tb_game_dir.TabIndex = 1;
@@ -228,7 +228,7 @@
             this.tb_code.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.tb_code.Image = null;
             this.tb_code.Lines = null;
-            this.tb_code.Location = new System.Drawing.Point(72, 211);
+            this.tb_code.Location = new System.Drawing.Point(70, 211);
             this.tb_code.MaxLength = 100;
             this.tb_code.Multiline = false;
             this.tb_code.Name = "tb_code";
@@ -263,7 +263,7 @@
             this.metroSetLink1.ThemeName = "MetroLite";
             this.metroSetLink1.UseCompatibleTextRendering = true;
             this.metroSetLink1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(157)))), ((int)(((byte)(205)))));
-            this.metroSetLink1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.metroSetLink1_LinkClicked);
+            this.metroSetLink1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnSourcesLabel_LinkClicked);
             // 
             // lb_code_now
             // 
@@ -271,10 +271,10 @@
             this.lb_code_now.BackColor = System.Drawing.Color.Transparent;
             this.lb_code_now.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.lb_code_now.ForeColor = System.Drawing.Color.White;
-            this.lb_code_now.Location = new System.Drawing.Point(3, 142);
+            this.lb_code_now.Location = new System.Drawing.Point(3, 145);
             this.lb_code_now.Name = "lb_code_now";
-            this.lb_code_now.Padding = new System.Windows.Forms.Padding(5);
-            this.lb_code_now.Size = new System.Drawing.Size(66, 27);
+            this.lb_code_now.Padding = new System.Windows.Forms.Padding(3);
+            this.lb_code_now.Size = new System.Drawing.Size(62, 23);
             this.lb_code_now.TabIndex = 4;
             this.lb_code_now.Text = "当前战局";
             // 
@@ -291,7 +291,7 @@
             this.tb_code_now.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.tb_code_now.Image = null;
             this.tb_code_now.Lines = null;
-            this.tb_code_now.Location = new System.Drawing.Point(72, 144);
+            this.tb_code_now.Location = new System.Drawing.Point(70, 144);
             this.tb_code_now.MaxLength = 100;
             this.tb_code_now.Multiline = false;
             this.tb_code_now.Name = "tb_code_now";
@@ -327,7 +327,7 @@
             this.cb_show_pwd.Text = "显示密码";
             this.cb_show_pwd.ThemeAuthor = "Narwin";
             this.cb_show_pwd.ThemeName = "MetroDark";
-            this.cb_show_pwd.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.cb_show_pwd_CheckedChanged);
+            this.cb_show_pwd.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.OnShowCode_CheckedChanged);
             // 
             // lb_title
             // 
