@@ -31,13 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label2 = new System.Windows.Forms.Label();
             this._ignore_ctrlbox = new MetroSet_UI.Controls.MetroSetControlBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_code = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_enter_public = new MetroSet_UI.Controls.MetroSetButton();
             this.btn_choose_game_dir = new MetroSet_UI.Controls.MetroSetButton();
             this.btn_set_code = new MetroSet_UI.Controls.MetroSetButton();
             this.tb_game_dir = new MetroSet_UI.Controls.MetroSetTextBox();
             this.tb_code = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.metroSetLink1 = new MetroSet_UI.Controls.MetroSetLink();
+            this.lb_code_now = new System.Windows.Forms.Label();
+            this.tb_code_now = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.cb_show_pwd = new MetroSet_UI.Controls.MetroSetCheckBox();
+            this.lb_title = new MetroSet_UI.Controls.MetroSetLabel();
             this.SuspendLayout();
             // 
             // label2
@@ -60,7 +65,7 @@
             this._ignore_ctrlbox.CloseHoverForeColor = System.Drawing.Color.White;
             this._ignore_ctrlbox.CloseNormalForeColor = System.Drawing.Color.Gray;
             this._ignore_ctrlbox.DisabledForeColor = System.Drawing.Color.Silver;
-            this._ignore_ctrlbox.Location = new System.Drawing.Point(557, 2);
+            this._ignore_ctrlbox.Location = new System.Drawing.Point(559, 2);
             this._ignore_ctrlbox.MaximizeBox = false;
             this._ignore_ctrlbox.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this._ignore_ctrlbox.MaximizeHoverForeColor = System.Drawing.Color.Gray;
@@ -77,18 +82,18 @@
             this._ignore_ctrlbox.ThemeAuthor = "Narwin";
             this._ignore_ctrlbox.ThemeName = "MetroDark";
             // 
-            // label3
+            // lb_code
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 211);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(5);
-            this.label3.Size = new System.Drawing.Size(66, 27);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "战局密码";
+            this.lb_code.AutoSize = true;
+            this.lb_code.BackColor = System.Drawing.Color.Transparent;
+            this.lb_code.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.lb_code.ForeColor = System.Drawing.Color.White;
+            this.lb_code.Location = new System.Drawing.Point(3, 211);
+            this.lb_code.Name = "lb_code";
+            this.lb_code.Padding = new System.Windows.Forms.Padding(5);
+            this.lb_code.Size = new System.Drawing.Size(66, 27);
+            this.lb_code.TabIndex = 4;
+            this.lb_code.Text = "战局密码";
             // 
             // label4
             // 
@@ -96,12 +101,12 @@
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(386, 212);
+            this.label4.Location = new System.Drawing.Point(367, 211);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(5);
-            this.label4.Size = new System.Drawing.Size(271, 27);
+            this.label4.Size = new System.Drawing.Size(198, 27);
             this.label4.TabIndex = 4;
-            this.label4.Text = "把startup.meta拖到图片，自动复制到游戏目录";
+            this.label4.Text = "把卡单文件拖到界面，会自动复制";
             // 
             // btn_enter_public
             // 
@@ -112,7 +117,7 @@
             this.btn_enter_public.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_enter_public.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_enter_public.HoverTextColor = System.Drawing.Color.White;
-            this.btn_enter_public.Location = new System.Drawing.Point(576, 141);
+            this.btn_enter_public.Location = new System.Drawing.Point(578, 210);
             this.btn_enter_public.Name = "btn_enter_public";
             this.btn_enter_public.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.btn_enter_public.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -120,7 +125,7 @@
             this.btn_enter_public.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.btn_enter_public.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.btn_enter_public.PressTextColor = System.Drawing.Color.White;
-            this.btn_enter_public.Size = new System.Drawing.Size(80, 28);
+            this.btn_enter_public.Size = new System.Drawing.Size(75, 28);
             this.btn_enter_public.Style = MetroSet_UI.Design.Style.Dark;
             this.btn_enter_public.StyleManager = null;
             this.btn_enter_public.TabIndex = 3;
@@ -138,7 +143,7 @@
             this.btn_choose_game_dir.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_choose_game_dir.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_choose_game_dir.HoverTextColor = System.Drawing.Color.White;
-            this.btn_choose_game_dir.Location = new System.Drawing.Point(576, 176);
+            this.btn_choose_game_dir.Location = new System.Drawing.Point(578, 176);
             this.btn_choose_game_dir.Name = "btn_choose_game_dir";
             this.btn_choose_game_dir.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.btn_choose_game_dir.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -146,7 +151,7 @@
             this.btn_choose_game_dir.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.btn_choose_game_dir.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.btn_choose_game_dir.PressTextColor = System.Drawing.Color.White;
-            this.btn_choose_game_dir.Size = new System.Drawing.Size(80, 28);
+            this.btn_choose_game_dir.Size = new System.Drawing.Size(75, 28);
             this.btn_choose_game_dir.Style = MetroSet_UI.Design.Style.Dark;
             this.btn_choose_game_dir.StyleManager = null;
             this.btn_choose_game_dir.TabIndex = 0;
@@ -164,7 +169,7 @@
             this.btn_set_code.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_set_code.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.btn_set_code.HoverTextColor = System.Drawing.Color.White;
-            this.btn_set_code.Location = new System.Drawing.Point(288, 211);
+            this.btn_set_code.Location = new System.Drawing.Point(288, 210);
             this.btn_set_code.Name = "btn_set_code";
             this.btn_set_code.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.btn_set_code.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -172,11 +177,11 @@
             this.btn_set_code.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.btn_set_code.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.btn_set_code.PressTextColor = System.Drawing.Color.White;
-            this.btn_set_code.Size = new System.Drawing.Size(80, 28);
+            this.btn_set_code.Size = new System.Drawing.Size(75, 28);
             this.btn_set_code.Style = MetroSet_UI.Design.Style.Dark;
             this.btn_set_code.StyleManager = null;
             this.btn_set_code.TabIndex = 4;
-            this.btn_set_code.Text = "输入代码";
+            this.btn_set_code.Text = "生成文件";
             this.btn_set_code.ThemeAuthor = "Narwin";
             this.btn_set_code.ThemeName = "MetroDark";
             this.btn_set_code.Click += new System.EventHandler(this.btn_set_code_Click);
@@ -235,8 +240,108 @@
             this.tb_code.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tb_code.ThemeAuthor = "Narwin";
             this.tb_code.ThemeName = "MetroDark";
-            this.tb_code.UseSystemPasswordChar = false;
+            this.tb_code.UseSystemPasswordChar = true;
             this.tb_code.WatermarkText = "";
+            // 
+            // metroSetLink1
+            // 
+            this.metroSetLink1.AutoSize = true;
+            this.metroSetLink1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroSetLink1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.metroSetLink1.LinkArea = new System.Windows.Forms.LinkArea(0, 8);
+            this.metroSetLink1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.metroSetLink1.Location = new System.Drawing.Point(585, 30);
+            this.metroSetLink1.Name = "metroSetLink1";
+            this.metroSetLink1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.metroSetLink1.Size = new System.Drawing.Size(74, 22);
+            this.metroSetLink1.Style = MetroSet_UI.Design.Style.Dark;
+            this.metroSetLink1.StyleManager = null;
+            this.metroSetLink1.TabIndex = 7;
+            this.metroSetLink1.TabStop = true;
+            this.metroSetLink1.Text = "Github源码";
+            this.metroSetLink1.ThemeAuthor = "Narwin";
+            this.metroSetLink1.ThemeName = "MetroLite";
+            this.metroSetLink1.UseCompatibleTextRendering = true;
+            this.metroSetLink1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(157)))), ((int)(((byte)(205)))));
+            this.metroSetLink1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.metroSetLink1_LinkClicked);
+            // 
+            // lb_code_now
+            // 
+            this.lb_code_now.AutoSize = true;
+            this.lb_code_now.BackColor = System.Drawing.Color.Transparent;
+            this.lb_code_now.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.lb_code_now.ForeColor = System.Drawing.Color.White;
+            this.lb_code_now.Location = new System.Drawing.Point(3, 142);
+            this.lb_code_now.Name = "lb_code_now";
+            this.lb_code_now.Padding = new System.Windows.Forms.Padding(5);
+            this.lb_code_now.Size = new System.Drawing.Size(66, 27);
+            this.lb_code_now.TabIndex = 4;
+            this.lb_code_now.Text = "当前战局";
+            // 
+            // tb_code_now
+            // 
+            this.tb_code_now.AutoCompleteCustomSource = null;
+            this.tb_code_now.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tb_code_now.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tb_code_now.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tb_code_now.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.tb_code_now.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tb_code_now.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tb_code_now.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.tb_code_now.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.tb_code_now.Image = null;
+            this.tb_code_now.Lines = null;
+            this.tb_code_now.Location = new System.Drawing.Point(72, 144);
+            this.tb_code_now.MaxLength = 100;
+            this.tb_code_now.Multiline = false;
+            this.tb_code_now.Name = "tb_code_now";
+            this.tb_code_now.ReadOnly = false;
+            this.tb_code_now.Size = new System.Drawing.Size(210, 27);
+            this.tb_code_now.Style = MetroSet_UI.Design.Style.Dark;
+            this.tb_code_now.StyleManager = null;
+            this.tb_code_now.TabIndex = 3;
+            this.tb_code_now.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tb_code_now.ThemeAuthor = "Narwin";
+            this.tb_code_now.ThemeName = "MetroDark";
+            this.tb_code_now.UseSystemPasswordChar = true;
+            this.tb_code_now.WatermarkText = "";
+            // 
+            // cb_show_pwd
+            // 
+            this.cb_show_pwd.BackColor = System.Drawing.Color.Transparent;
+            this.cb_show_pwd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cb_show_pwd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.cb_show_pwd.Checked = false;
+            this.cb_show_pwd.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.cb_show_pwd.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            this.cb_show_pwd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_show_pwd.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cb_show_pwd.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.cb_show_pwd.Location = new System.Drawing.Point(288, 148);
+            this.cb_show_pwd.Name = "cb_show_pwd";
+            this.cb_show_pwd.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
+            this.cb_show_pwd.Size = new System.Drawing.Size(75, 16);
+            this.cb_show_pwd.Style = MetroSet_UI.Design.Style.Dark;
+            this.cb_show_pwd.StyleManager = null;
+            this.cb_show_pwd.TabIndex = 8;
+            this.cb_show_pwd.Text = "显示密码";
+            this.cb_show_pwd.ThemeAuthor = "Narwin";
+            this.cb_show_pwd.ThemeName = "MetroDark";
+            this.cb_show_pwd.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.cb_show_pwd_CheckedChanged);
+            // 
+            // lb_title
+            // 
+            this.lb_title.AutoSize = true;
+            this.lb_title.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lb_title.Location = new System.Drawing.Point(253, 2);
+            this.lb_title.Name = "lb_title";
+            this.lb_title.Size = new System.Drawing.Size(164, 22);
+            this.lb_title.Style = MetroSet_UI.Design.Style.Dark;
+            this.lb_title.StyleManager = null;
+            this.lb_title.TabIndex = 9;
+            this.lb_title.Text = "荒野大镖客2卡单工具";
+            this.lb_title.ThemeAuthor = "Narwin";
+            this.lb_title.ThemeName = "MetroDark";
             // 
             // MainForm
             // 
@@ -249,15 +354,20 @@
             this.BackgroundImage = global::RDR2Tool.Properties.Resources.logo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(662, 245);
+            this.Controls.Add(this._ignore_ctrlbox);
+            this.Controls.Add(this.lb_title);
+            this.Controls.Add(this.cb_show_pwd);
+            this.Controls.Add(this.metroSetLink1);
+            this.Controls.Add(this.tb_code_now);
             this.Controls.Add(this.tb_code);
             this.Controls.Add(this.tb_game_dir);
             this.Controls.Add(this.btn_set_code);
             this.Controls.Add(this.btn_choose_game_dir);
             this.Controls.Add(this.btn_enter_public);
+            this.Controls.Add(this.lb_code_now);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lb_code);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this._ignore_ctrlbox);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -280,13 +390,18 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private MetroSet_UI.Controls.MetroSetControlBox _ignore_ctrlbox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_code;
         private System.Windows.Forms.Label label4;
         private MetroSet_UI.Controls.MetroSetButton btn_enter_public;
         private MetroSet_UI.Controls.MetroSetButton btn_choose_game_dir;
         private MetroSet_UI.Controls.MetroSetButton btn_set_code;
         private MetroSet_UI.Controls.MetroSetTextBox tb_game_dir;
         private MetroSet_UI.Controls.MetroSetTextBox tb_code;
+        private MetroSet_UI.Controls.MetroSetLink metroSetLink1;
+        private System.Windows.Forms.Label lb_code_now;
+        private MetroSet_UI.Controls.MetroSetTextBox tb_code_now;
+        private MetroSet_UI.Controls.MetroSetCheckBox cb_show_pwd;
+        private MetroSet_UI.Controls.MetroSetLabel lb_title;
     }
 }
 

@@ -8,10 +8,6 @@ namespace Common
 	public static class PathEx
 	{
 
-		public const string HOME_URL = "https://space.bilibili.com/345993886";
-
-		public const string DOWNLOAD_URL = "https://www.caimogu.cc/post/224407.html";
-
 		public static long GetLength(string path)
         {
             if (File.Exists(path))

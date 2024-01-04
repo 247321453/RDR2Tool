@@ -8,7 +8,7 @@
     <ProjectGuid>{98FB618B-5CDB-423A-8C6C-B74BC28902D8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RDR2Tool</RootNamespace>
-    <AssemblyName>RDR2Tool</AssemblyName>
+    <AssemblyName>RDR2卡单工具</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

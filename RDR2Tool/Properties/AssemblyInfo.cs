@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("RDR2Tool")]
+[assembly: AssemblyTitle("RDR2卡单工具")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RDR2Tool")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyProduct("RDR2卡单工具")]
+[assembly: AssemblyCopyright("Copyright © 那只海豹 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
