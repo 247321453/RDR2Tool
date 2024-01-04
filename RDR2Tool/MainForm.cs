@@ -76,7 +76,7 @@ namespace RDR2Tool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            //cb_show_pwd.Checked = true;
             metaFileManager.Read();
             //读取数据
             tb_game_dir.Text = metaFileManager.GamePath;
@@ -140,6 +140,10 @@ namespace RDR2Tool
                 ResetMetaFile();
                 return;
             }
+            if(MessageBox.Show("输入的密码是："+code+"\n\n点“是”：自动生成卡单文件", "询问", MessageBoxButtons.YesNo) != DialogResult.OK)
+            {
+                return;
+            }
             string temp_file = PathEx.GetFullPath("./startup_" + DateTime.Now.Ticks + ".meta");
             //生成本地卡单文件
             if (!metaFileManager.GenMetaFile(code, temp_file))
@@ -181,6 +185,7 @@ namespace RDR2Tool
         private void OnShowCode_CheckedChanged(object sender)
         {
             tb_code_now.UseSystemPasswordChar = !cb_show_pwd.Checked;
+            //tb_code.UseSystemPasswordChar = !cb_show_pwd.Checked;
         }
 
 
