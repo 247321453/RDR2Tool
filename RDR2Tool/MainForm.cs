@@ -102,9 +102,20 @@ namespace RDR2Tool
         {
             using (var dlg = new FolderBrowserDialog())
             {
+                dlg.ShowNewFolderButton = false;
                 dlg.Description = "请选择" + MetaFileManager.GAME_NAME + "的路径";
+                //dlg.SelectedPath = SteamUtil.FindDefaultGamePath(MetaFileManager.GAME_NAME);
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
+                    string name = Path.GetFileName(dlg.SelectedPath);
+                    if("Desktop".Equals(name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return;
+                    }
+                    if(!MetaFileManager.GAME_NAME.Equals(name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        MessageBox.Show("警告：你选择的路径不是" + MetaFileManager.GAME_NAME);
+                    }
                     tb_game_dir.Text = dlg.SelectedPath;
                     metaFileManager.SaveGamePath(dlg.SelectedPath);
                     tb_code_now.Text = metaFileManager.ReadGameCode();
