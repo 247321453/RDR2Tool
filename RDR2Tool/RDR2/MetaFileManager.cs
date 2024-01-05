@@ -39,7 +39,7 @@ namespace RDR2Tool
         /// <param name="gamePath"></param>
         public void SaveGamePath(string gamePath)
         {
-            if (GamePath != gamePath && Directory.Exists(gamePath))
+            if (gamePath != null && GamePath != gamePath && Directory.Exists(gamePath))
             {
                 GamePath = gamePath;
                 IniHelper.Write(KEY_GAME_PATH, gamePath, INI_FILE);
@@ -92,6 +92,10 @@ namespace RDR2Tool
         /// <returns></returns>
         private string GetMetaFile()
         {
+            if(GamePath == null)
+            {
+                return Path.Combine("./x64", "data", FILE_NAME);
+            }
             return Path.Combine(GamePath, "x64", "data", FILE_NAME);
              
         }

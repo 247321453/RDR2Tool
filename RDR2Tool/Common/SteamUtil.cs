@@ -9,7 +9,7 @@ namespace Common
 
         private static string FindPath(string suffix)
         {
-            for (int i = 'C'; i <= 'K'; i++)
+            for (int i = 'C'; i <= 'L'; i++)
             {
                 string path = ((char)i) + suffix;
                 if (Directory.Exists(path))
@@ -20,19 +20,27 @@ namespace Common
             return null;
         }
 
-        public static string FindDefaultGamePath(string game)
+        public static string FindDefaultGamePath(string game, string def = null)
         {
-            //C:\Steam\steamapps\common\Monster Hunter World\MonsterHunterWorld.exe
+            //根目录的Steam，或者Steam的库
             string result = FindPath(@":\Steam\steamapps\common\" + game);
             if(result != null)
             {
                 return result;
             }
+            //Steam的库
             result = FindPath(@":\SteamLibrary\steamapps\common\" + game);
             if (result != null)
             {
                 return result;
             }
+            //steam安装路径
+            result = FindPath(@":\Program Files\Steam\steamapps\common\" + game);
+            if (result != null)
+            {
+                return result;
+            }
+            //steam安装路径
             result = FindPath(@":\Program Files (x86)\Steam\steamapps\common\" + game);
             if (result != null)
             {
@@ -75,7 +83,7 @@ namespace Common
                     return path;
                 }
             }
-            return null;
+            return def;
         }
 
         public static string GetSteamRoot()
@@ -96,7 +104,7 @@ namespace Common
             if (!Directory.Exists(root))
             {
                 root = null;
-                for (int i = 'C'; i <= 'H'; i++)
+                for (int i = 'C'; i <= 'L'; i++)
                 {
                     string path = ((char)i) + @":\Program Files (x86)\Steam";
                     if (Directory.Exists(path))
