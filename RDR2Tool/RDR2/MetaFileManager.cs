@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.Steam;
 using System;
 using System.IO;
 using System.Text;
@@ -10,6 +11,8 @@ namespace RDR2Tool
         //经过测试，用户权限也可以写文件到C盘的steam路径
         private static bool USE_CMD = false;
         public const string GAME_NAME = "Red Dead Redemption 2";
+        public const string GAME_EXE = "RDR2.exe";
+        public const int APPID = 1174180;
         public string GamePath { get; set; }
         private const string INI_FILE = "./rdr2tool.ini";
         private const string KEY_GAME_PATH = "game_path";
@@ -28,7 +31,11 @@ namespace RDR2Tool
             string gamePath = IniHelper.Read(KEY_GAME_PATH, null, INI_FILE);
             if (gamePath == null || !gamePath.Contains(":") || !Directory.Exists(gamePath))
             {
-                gamePath = SteamUtil.FindDefaultGamePath(GAME_NAME);
+                gamePath = SteamInstallationPathDetector.Instance.GetSteamInstallationPath("" + APPID, GAME_NAME, GAME_EXE);
+                if (gamePath == null)
+                {
+                    gamePath = SteamUtil.FindDefaultGamePath(GAME_NAME, null);
+                }
                 IniHelper.Write(KEY_GAME_PATH, gamePath, INI_FILE);
             }
             GamePath = gamePath;

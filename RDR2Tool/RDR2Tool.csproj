@@ -71,8 +71,12 @@
   <ItemGroup>
     <Compile Include="Common\CommandUtil.cs" />
     <Compile Include="Common\InIHelper.cs" />
-    <Compile Include="Common\PathEx.cs" />
     <Compile Include="Common\SteamUtil.cs" />
+    <Compile Include="Common\Steam\KeyValue.cs" />
+    <Compile Include="Common\PathEx.cs" />
+    <Compile Include="Common\Steam\RegistryUtil.cs" />
+    <Compile Include="Common\Steam\SteamInstallationPathDetector.cs" />
+    <Compile Include="Common\Steam\StreamHelpers.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
