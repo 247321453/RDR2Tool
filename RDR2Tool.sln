@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDR2Tool", "RDR2Tool\RDR2Tool.csproj", "{98FB618B-5CDB-423A-8C6C-B74BC28902D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTool", "ImageTool\ImageTool.csproj", "{01D7E333-77DD-40D5-AFEA-D6E231127AB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{98FB618B-5CDB-423A-8C6C-B74BC28902D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98FB618B-5CDB-423A-8C6C-B74BC28902D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98FB618B-5CDB-423A-8C6C-B74BC28902D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D7E333-77DD-40D5-AFEA-D6E231127AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D7E333-77DD-40D5-AFEA-D6E231127AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D7E333-77DD-40D5-AFEA-D6E231127AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D7E333-77DD-40D5-AFEA-D6E231127AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
