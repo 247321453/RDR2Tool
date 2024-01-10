@@ -68,13 +68,11 @@ namespace ImageTool
         {
             if (mRunning)
             {
-                mRunning = false;
                 StopFileWatch();
                 btn_start.Text = "开始";
             }
             else
             {
-                mRunning = true;
                 btn_start.Text = "停止";
                 IniHelper.Write(KEY_DIR, tb_game_dir.Text, INI_FILE);
                 StartFileWatch(tb_game_dir.Text);
@@ -94,6 +92,7 @@ namespace ImageTool
                 {
                     path += "\\";
                 }
+                mRunning = true;
                 FileWatcher = new FileSystemWatcherEx(path, "*.png|*.jpg|*.bmp", true, "",
                     OnFileChanged, OnFileChanged,
                     OnFileChanged);
@@ -148,11 +147,17 @@ namespace ImageTool
 
         private void StopFileWatch()
         {
+            mRunning = false;
             if (FileWatcher != null)
             {
                 FileWatcher.Stop();
                 FileWatcher = null;
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StopFileWatch();
         }
     }
 }
