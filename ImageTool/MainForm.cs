@@ -103,8 +103,7 @@ namespace ImageTool
 
         public void OnFileChanged(object sender, FileSystemEventArgs e)
         {
-            if (e.ChangeType == System.IO.WatcherChangeTypes.Created
-              || e.ChangeType == System.IO.WatcherChangeTypes.Changed)
+            if (e.ChangeType == System.IO.WatcherChangeTypes.Created)
             {
                 Slog.d("文件观察者", "OnFileChanged:" + e.ChangeType + ":" + e.FullPath);
                 Task.Run(()=>{
@@ -131,7 +130,14 @@ namespace ImageTool
             {
                 return;
             }
-            string ex = Path.GetExtension(path).ToLower();
+            var fi = new FileInfo(path);
+            //文件创建时间大于5秒就说明是老文件
+            long sp;
+            if((sp = ((DateTime.UtcNow.Ticks - fi.CreationTimeUtc.Ticks)/10000)) > 5000)
+            {
+                Slog.d("文件观察者", "跳过图片:" + Path.GetFileName(path)+" by " + sp);
+                return;
+            }
             Slog.i("文件观察者", "读取图片:" + Path.GetFileName(path));
             LastPath = path;
             if (LastImage != null)

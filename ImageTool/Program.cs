@@ -5,7 +5,7 @@ namespace ImageTool
 {
     internal static class Program
     {
-        public const string VERSION = "1.1";
+        public const string VERSION = "1.2";
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
