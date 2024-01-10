@@ -36,6 +36,7 @@
             this.lb_title = new System.Windows.Forms.Label();
             this.btn_start = new MetroSet_UI.Controls.MetroSetButton();
             this.rb_log = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _ignore_ctrlbox
@@ -137,7 +138,7 @@
             this.lb_title.BackColor = System.Drawing.Color.Transparent;
             this.lb_title.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lb_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.lb_title.Location = new System.Drawing.Point(5, 2);
+            this.lb_title.Location = new System.Drawing.Point(5, 3);
             this.lb_title.Name = "lb_title";
             this.lb_title.Padding = new System.Windows.Forms.Padding(3);
             this.lb_title.Size = new System.Drawing.Size(128, 28);
@@ -187,6 +188,19 @@
             this.rb_log.TabStop = false;
             this.rb_log.Text = "";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(139, 9);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(3);
+            this.label1.Size = new System.Drawing.Size(350, 23);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "自动从截图文件夹读取最新截图到粘贴板，方便分享到聊天软件";
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -202,6 +216,7 @@
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.btn_choose_game_dir);
             this.Controls.Add(this.lb_title);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._ignore_ctrlbox);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -230,6 +245,7 @@
         private System.Windows.Forms.Label lb_title;
         private MetroSet_UI.Controls.MetroSetButton btn_start;
         private System.Windows.Forms.RichTextBox rb_log;
+        private System.Windows.Forms.Label label1;
     }
 }
 
