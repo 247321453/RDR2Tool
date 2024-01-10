@@ -136,7 +136,7 @@
             this.lb_title.AutoSize = true;
             this.lb_title.BackColor = System.Drawing.Color.Transparent;
             this.lb_title.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_title.ForeColor = System.Drawing.Color.White;
+            this.lb_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.lb_title.Location = new System.Drawing.Point(5, 2);
             this.lb_title.Name = "lb_title";
             this.lb_title.Padding = new System.Windows.Forms.Padding(3);
