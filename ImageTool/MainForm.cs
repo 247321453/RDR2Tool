@@ -93,11 +93,36 @@ namespace ImageTool
                     path += "\\";
                 }
                 mRunning = true;
+                long time = 0;
+                string[] files = Directory.GetFiles(path);
+                string lastFile = null;
+                foreach(string file in files)
+                {
+                    var ex = Path.GetExtension(file);
+                    if(".png".Equals(ex, StringComparison.OrdinalIgnoreCase)
+                        || ".jpg".Equals(ex, StringComparison.OrdinalIgnoreCase)
+                        || ".bmp".Equals(ex, StringComparison.OrdinalIgnoreCase))
+                    {
+                        var fi = new FileInfo(file);
+                        long fileTime = (fi.CreationTimeUtc.Ticks / 10000);
+                        if (fileTime > time)
+                        {
+                            lastFile = file;
+                            time = fileTime;
+                        }
+                    }
+                }
                 FileWatcher = new FileSystemWatcherEx(path, "*.png|*.jpg|*.bmp", true, "",
                     OnFileChanged, OnFileChanged,
                     OnFileChanged);
                 FileWatcher.Start();
                 Slog.i("文件观察者", "当前文件夹是:" + path);
+
+                if (lastFile != null)
+                {
+                    Slog.i("文件观察者", "最新的图片是:" + Path.GetFileName(lastFile));
+                    LoadImageAsync(lastFile, false);
+                }
             }
         }
 
@@ -108,19 +133,25 @@ namespace ImageTool
                 Slog.d("文件观察者", "OnFileChanged:" + e.ChangeType + ":" + e.FullPath);
                 Task.Run(()=>{
                     Thread.Sleep(500);
-                    UIThread.Post(() =>
-                    {
-                        try
-                        {
-                            LoadImage(e.FullPath);
-                        }
-                        catch { }
-                    });
+                    LoadImageAsync(e.FullPath);
                 });
             }
         }
 
-        private void LoadImage(string path)
+        private void LoadImageAsync(string path, bool checkTime = true) {
+            UIThread.Post(() =>
+            {
+                try
+                {
+                    LoadImage(path, checkTime);
+                }
+                catch {
+                    Slog.w("图片加载器", "读取图片失败:" + path);
+                }
+            });
+        }
+
+        private void LoadImage(string path, bool checkTime)
         {
             if (LastPath == path)
             {
@@ -130,13 +161,16 @@ namespace ImageTool
             {
                 return;
             }
-            var fi = new FileInfo(path);
-            //文件创建时间大于5秒就说明是老文件
-            long sp;
-            if((sp = ((DateTime.UtcNow.Ticks - fi.CreationTimeUtc.Ticks)/10000)) > 5000)
+            if (checkTime)
             {
-                Slog.d("文件观察者", "跳过图片:" + Path.GetFileName(path)+" by " + sp);
-                return;
+                var fi = new FileInfo(path);
+                //文件创建时间大于5秒就说明是老文件
+                long sp;
+                if ((sp = ((DateTime.UtcNow.Ticks - fi.CreationTimeUtc.Ticks) / 10000)) > 5000)
+                {
+                    Slog.d("文件观察者", "跳过图片:" + Path.GetFileName(path) + " by " + sp);
+                    return;
+                }
             }
             Slog.i("文件观察者", "读取图片:" + Path.GetFileName(path));
             LastPath = path;
